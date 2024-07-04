@@ -40,8 +40,9 @@ int	height(char **map)
 int	width(char **map){
 	int	i;
 
-	i = 0;
-	while (map[0][i])
-		i++;
+	//i = 0;
+	// while (map[0][i])
+	// 	i++;
+	i = spec_strlen(map[0]);
 	return (i);
 }

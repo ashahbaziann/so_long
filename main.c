@@ -9,11 +9,7 @@ void	init_game(t_game **game,char **map)
 {
 	(*game) = (t_game *)malloc(sizeof(t_game));
 	if (!(*game))
-		{
-			map_free(map);
-			//game_free((*game));
-			error("Invalid game!", NULL);
-		}
+		clean(game, map, "Invalid game!");
 	(*game) -> map = map;
 	(*game) -> coins = 0;
 	(*game) -> exit = 0;
