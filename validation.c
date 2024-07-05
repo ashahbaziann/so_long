@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validation.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ashahbaz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/05 16:11:51 by ashahbaz          #+#    #+#             */
+/*   Updated: 2024/07/05 16:11:53 by ashahbaz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	valid_argv(char *str1, char *str2)
@@ -42,7 +54,6 @@ char**	read_map(int fd)
 	map = split(line, '\n');
 	free(tmp);
 	free(line);
-	//system("leaks a.out");
 	return (map);
 }
 
@@ -57,5 +68,6 @@ char**	map_construct(int argc, char **argv)
 	if (fd == -1)
 		error("File can't be opened!", NULL);
 	map = read_map(fd);
+	// system("leaks so_long");
 	return (map);
 }
