@@ -2,13 +2,13 @@ NAME = so_long
 
 RM = rm -f
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
 
 SRCS =  main.c \
 	map_character.c \
 	split.c \
 	utils.c \
-	utils2.c \
+	error_utils.c \
 	validation.c \
 	walls.c \
 	initialization.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashahbaz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:51 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/05 16:11:53 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/08 19:15:47 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char**	read_map(int fd)
 
 	line = get_next_line(fd);
 	if (!line)
-		error("File can't be read!", line);
+		error("File can't be read!\n", line);
 	while (1)
 	{
 		tmp = get_next_line(fd);
@@ -49,7 +49,7 @@ char**	read_map(int fd)
 		line = ft_strjoin(line, tmp);
 		free(tmp);
 		if (!line)
-			error("Line couldn't be joined", line);
+			error("Line couldn't be joined\n", line);
 	}
 	map = split(line, '\n');
 	free(tmp);
@@ -63,10 +63,10 @@ char**	map_construct(int argc, char **argv)
 	char	**map;
 
 	if (argc != 2 || !valid_argv(argv[1], ".ber"))
-		error("Wrong Input!", NULL);
+		error("Wrong Input!\n", NULL);
 	fd = open("map.ber", O_RDONLY);
 	if (fd == -1)
-		error("File can't be opened!", NULL);
+		error("File can't be opened!\n", NULL);
 	map = read_map(fd);
 	// system("leaks so_long");
 	return (map);

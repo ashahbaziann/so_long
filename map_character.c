@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_character.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashahbaz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:00 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/05 16:11:02 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/08 19:15:12 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@ void	is_map_playable(t_game **game)
 {
 	is_map_playable_helper(*game);
 	if (!((*game) -> player == 1 && (*game) -> exit == 1 && (*game) -> coins >= 1))
-		clean((*game), NULL, "Not enough values on the map!");
+		clean((*game), NULL, "Not enough values on the map!\n");
 }
+
 void	player_location(t_game *game, int i, int j)
 {
 	game -> curr.x = i;
 	game -> curr.y = j;
 	(game -> player)++;
 }
+
 void	is_map_playable_helper(t_game *game)
 {
 	int		i;
@@ -46,9 +48,12 @@ void	is_map_playable_helper(t_game *game)
 			else if (game -> map [i][j] == '1')
 				(game -> wall)++;
 			else
-				clean (game, NULL, "Not valid input values!");
+				clean (game, NULL, "Not valid input values!\n");
 			j++;
 		}
 		i++;
 	}
 }
+
+
+

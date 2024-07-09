@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:10:25 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/05 16:22:29 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:58:41 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	init_window(t_game *game)
 {
 	game -> mlx = mlx_init();
 	if (!game -> mlx)
-		clean(game, NULL, "Couldn't create window!");
+		clean(game, NULL, "Couldn't create window!\n");
 	game -> mlx_win = mlx_new_window(game -> mlx, game -> width * SPRITE,
 			game -> height * SPRITE, "so_long");
 	if (!game -> mlx_win)
-		clean(game, NULL, "Couldn't create window!");
+		clean(game, NULL, "Couldn't create window!\n");
 }
 
 void	init_images(t_game *game)

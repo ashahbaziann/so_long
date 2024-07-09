@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:10:39 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/05 16:43:15 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/08 19:11:29 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_game(t_game **game, char **map)
 {
 	(*game) = (t_game *)malloc(sizeof(t_game));
 	if (!(*game))
-		clean((*game), NULL, "Invalid game!");
+		clean((*game), NULL, "Invalid game!\n");
 	(*game)-> map = map;
 	(*game)-> coins = 0;
 	(*game)-> exit = 0;

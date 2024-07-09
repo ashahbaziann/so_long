@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:12:46 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/05 20:10:55 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:26:59 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ typedef struct s_game
 	void	*wall_loc;
 }	t_game;
 
-int	check_direction(char value);
-void clear_current_position(t_game *game);
-void redraw_map(t_game *game);
-void move_player(t_game *game, int dx, int dy, char direction);
-int	handle_movement(int keycode, t_game *game);
-int	handle_close(t_game *game);
+
+void	the_end(t_game *game);
+void	clear_current_position(t_game *game);
+void	move_player(t_game *game, int dx, int dy);
+int		handle_movement(int keycode, t_game *game);
+int		handle_close(t_game *game);
 
 void	init_window(t_game *game);
 void	init_images(t_game *game);
@@ -61,8 +61,7 @@ void	create_map(t_game *game);
 void	put_image(t_game *game, int i, int j, char val);
 void	put_image_helper(t_game *game, void *val, int i, int j);
 
-char	*ft_strcpy(char *dest, char *src);
-int		ft_strchr(char *s, int c);
+
 
 void	init_point(t_point *point);
 void	init_game(t_game **game, char **map);
@@ -73,7 +72,6 @@ void	is_map_rectangular(t_game *game);
 void	are_walls_surrounding(t_game *game);
 
 char	**copy_matrix(t_game *game);
-void	clean(t_game *game, char **copy, char *str);
 void	flood_fill(char **copy, t_point current, int width, int height);
 void	check_map(char **copy, t_game *game);
 void	check_all_routes(t_game *game);
@@ -85,6 +83,10 @@ void	is_map_playable_helper(t_game *game);
 void	error(char *str1, char *str2);
 void	map_free(char **map);
 void	game_free(t_game *game);
+void	clean(t_game *game, char **copy, char *str);
+
+char	*ft_strcpy(char *dest, char *src);
+int		ft_strchr(char *s, int c);
 int		width(char **map);
 int		height(char **map);
 
