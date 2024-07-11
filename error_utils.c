@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:29 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 17:05:46 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 18:52:12 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	error(char *str1, char *str2)
 {
+	write(2, "Error\n", 6);
 	while (*str1)
 	{
 		write(2, str1, 1);
@@ -22,7 +23,6 @@ void	error(char *str1, char *str2)
 	if (str2)
 		free(str2);
 	str2 = NULL;
-	system("leaks so_long");
 	exit(1);
 }
 
@@ -65,7 +65,6 @@ void	clean(t_game *game, char **copy, char *str)
 		game_free(game);
 	copy = NULL;
 	game = NULL;
-	system("leaks so_long");
 	error(str, NULL);
 }
 

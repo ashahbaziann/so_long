@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:12:59 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 17:14:03 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 18:50:56 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ void	move_player(t_game *game, int dx, int dy)
 	{
 		if (game -> coins <= 0)
 		{
-			clear_current_position(game);
-			game -> curr.x += dx;
-			game -> curr.y += dy;
-			put_image(game, game->curr.y, game->curr.x, 'P');
+			game -> steps++;
+			ft_putnbr(game -> steps);
+			write (1, "\n", 1);
 			the_end(game);
 			write (1, "You Win!\n", 9);
 			exit(0);
@@ -62,7 +61,6 @@ int	handle_movement(int keycode, t_game *game)
 	{
 		the_end(game);
 		game = NULL;
-		system("leaks so_long");
 		exit(0);
 	}
 	else if (keycode == 123)
@@ -73,6 +71,8 @@ int	handle_movement(int keycode, t_game *game)
 		move_player(game, 1, 0);
 	else if (keycode == 125)
 		move_player(game, 0, 1);
+	ft_putnbr(game -> steps);
+	write (1, "\n", 1);
 	return (0);
 }
 
@@ -80,7 +80,6 @@ int	handle_close(t_game *game)
 {
 	the_end(game);
 	game = NULL;
-	system("leaks so_long");
 	exit(0);
 	return (0);
 }

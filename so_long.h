@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:12:46 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 17:14:22 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 18:31:23 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,9 @@ char	*substr_alter(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char *s1, char *set);
 char	*another_strtrim(char *s1, char *set);
 int		line_is_empty(char *str);
+
+void	ft_putchar(int x);
+void	ft_putnbr(int nb);
 
 size_t	count_words(char const *s, char c);
 char	*word_mall(char const *s, size_t f_occ, size_t l_occ);

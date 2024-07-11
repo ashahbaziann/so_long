@@ -9,6 +9,7 @@ SRCS =  main.c \
 	split.c \
 	utils.c \
 	helpers.c \
+	more_helpers.c \
 	error_utils.c \
 	validation.c \
 	walls.c \

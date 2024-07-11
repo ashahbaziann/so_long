@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:51 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 17:17:23 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 18:53:32 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@ char	**map_construct(int argc, char **argv)
 	char	**map;
 
 	if (argc != 2 || !valid_argv(argv[1], ".ber"))
-		error("Wrong Input!\n", NULL);
+		error("Wrong arguments!\n", NULL);
 	fd = open("map.ber", O_RDONLY);
 	if (fd == -1)
 		error("File can't be opened!\n", NULL);
 	map = read_map(fd);
-	system("leaks so_long");
 	return (map);
 }
 
@@ -32,6 +31,10 @@ int	valid_argv(char *str1, char *str2)
 	int	i;
 
 	i = 0;
+	if (!str1)
+		return (0);
+	if (ft_strlen(str1) <= 4)
+		return (0);
 	while (*str1)
 		str1++;
 	while (*str2)
@@ -90,7 +93,7 @@ char	**read_map(int fd)
 		line = ft_strjoin(line, check);
 		line_free(tmp, check);
 		if (!line)
-			error("Line couldn't be joined\n", line);
+			error("Validation failed!\n", line);
 	}
 	new = check_line(&new, &line);
 	map = split(line, '\n');
