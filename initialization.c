@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:10:39 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/08 19:11:29 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/09 16:13:01 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_game(t_game **game, char **map)
 	(*game)-> coins = 0;
 	(*game)-> exit = 0;
 	(*game)-> player = 0;
+	(*game)-> steps = 0;
 	(*game)-> mlx = NULL;
 	(*game)-> mlx_win = NULL;
 	(*game)-> player_loc = &((*game)-> player);

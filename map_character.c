@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:00 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/08 19:15:12 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:09:23 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	is_map_playable(t_game **game)
 {
 	is_map_playable_helper(*game);
-	if (!((*game) -> player == 1 && (*game) -> exit == 1 && (*game) -> coins >= 1))
+	if (!((*game)-> player == 1 && (*game)-> exit == 1
+			&& (*game)-> coins >= 1))
 		clean((*game), NULL, "Not enough values on the map!\n");
 }
 
@@ -34,7 +35,7 @@ void	is_map_playable_helper(t_game *game)
 	i = 1;
 	while (i < (game -> height))
 	{
-		j = 1;
+		j = 0;
 		while (game -> map[i][j])
 		{
 			if (game -> map[i][j] == 'P')
@@ -54,6 +55,3 @@ void	is_map_playable_helper(t_game *game)
 		i++;
 	}
 }
-
-
-

@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:12:05 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/08 19:16:06 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:00:18 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	are_horizontal_walls_valid(t_game *game)
 			clean(game, NULL, "Missing walls!\n");
 		j++;
 	}
-	while (game -> map[(game -> height) - 1][j])
+	while (game -> map[(game -> height) - 1][j - 1])
 	{
-		if (game -> map[(game -> height) - 1][j] != '1')
+		if (game -> map[(game -> height) - 1][j - 1] != '1')
 			clean(game, NULL, "Missing walls!\n");
 		j--;
 	}
@@ -70,72 +70,6 @@ void	is_map_rectangular(t_game *game)
 	}
 }
 
-// int	is_white_spc(char c)
-// {
-// 	if (c == ' ' || c == '\t')
-// 		return (1);
-// 	return (0);
-// }
-
-// int	spec_strlen(char *str)
-// {
-// 	int	i;
-// 	int	count;
-
-// 	i = 0;
-// 	count = 0;
-// 	while (str[i])
-// 	{
-// 		if (is_white_spc(str[i]))
-// 		{
-// 			while (is_white_spc(str[i]))
-// 				i++;
-// 			if (str[i] == '\0')
-// 				return (count);
-// 			else
-// 				return (0);
-// 		}
-// 		count++;
-// 		i++;
-// 	}
-// 	return (count);
-// }
-
-// pec_strlen(char *str, int width)
-// {
-// 	int	i;
-// 	int	count;
-
-// 	i = 0;
-// 	count = 0;
-// 	while (str[i])
-// 	{
-// 		if (!((str[i] == ' ' || str[i] == '\t') && i >= width))
-// 		{
-// 			if (str[i])
-// 				count++;
-// 		}
-// 		i++;
-// 	}
-// 	return (count);
-// }
-// void	is_map_rectangular(char **map, int h_height, int w_width)
-// {
-// 	int	i;
-// 	int	j;
-
-// 	i = 0;
-// 	j = 0;
-// 	while (i < h_height)
-// 	{
-// 		printf("spec = %d\n",spec_strlen(map[i]));
-
-// 		printf("width = %d\n",w_width);
-// 		if (spec_strlen(map[i]) != w_width)
-// 			clean(NULL, map, "Map isn't in the rectangular form!");
-// 		i++;
-// 	}
-// }
 void	are_walls_surrounding(t_game *game)
 {
 	is_map_rectangular(game);

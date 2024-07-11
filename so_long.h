@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:12:46 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/09 13:26:59 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:14:22 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ typedef struct s_game
 	int		exit;
 	int		wall;
 	int		ground;
+	int		steps;
 	void	*player_loc;
 	void	*coins_loc;
 	void	*exit_loc;
 	void	*ground_loc;
 	void	*wall_loc;
 }	t_game;
-
 
 void	the_end(t_game *game);
 void	clear_current_position(t_game *game);
@@ -60,8 +60,6 @@ void	init_images(t_game *game);
 void	create_map(t_game *game);
 void	put_image(t_game *game, int i, int j, char val);
 void	put_image_helper(t_game *game, void *val, int i, int j);
-
-
 
 void	init_point(t_point *point);
 void	init_game(t_game **game, char **map);
@@ -83,16 +81,25 @@ void	is_map_playable_helper(t_game *game);
 void	error(char *str1, char *str2);
 void	map_free(char **map);
 void	game_free(t_game *game);
+void	line_free(char	*line1, char *line2);
 void	clean(t_game *game, char **copy, char *str);
 
 char	*ft_strcpy(char *dest, char *src);
 int		ft_strchr(char *s, int c);
+char	*ft_strdup(char *s1);
 int		width(char **map);
 int		height(char **map);
 
 int		valid_argv(char *str1, char *str2);
 char	**read_map(int fd);
 char	**map_construct(int argc, char **argv);
+void	double_new_line(char *line);
+char	*check_line(char **new_line, char **line);
+
+char	*substr_alter(char const *s, unsigned int start, size_t len);
+char	*ft_strtrim(char *s1, char *set);
+char	*another_strtrim(char *s1, char *set);
+int		line_is_empty(char *str);
 
 size_t	count_words(char const *s, char c);
 char	*word_mall(char const *s, size_t f_occ, size_t l_occ);

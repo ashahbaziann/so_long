@@ -6,58 +6,13 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:51 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/08 19:15:47 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:17:23 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	valid_argv(char *str1, char *str2)
-{
-	int	i;
-	i = 0;
-
-	while (*str1)
-		str1++;
-	while (*str2)
-		str2++;
-	while (i < 4 && *str1 == *str2)
-		{
-			i++;
-			str1--;
-			str2--;
-		}
-	if (i == 4)
-		return (1);
-	return (0);
-}
-
-char**	read_map(int fd)
-{
-	char	*line;
-	char	*tmp;
-	char	**map;
-
-	line = get_next_line(fd);
-	if (!line)
-		error("File can't be read!\n", line);
-	while (1)
-	{
-		tmp = get_next_line(fd);
-		if (!tmp)
-			break;
-		line = ft_strjoin(line, tmp);
-		free(tmp);
-		if (!line)
-			error("Line couldn't be joined\n", line);
-	}
-	map = split(line, '\n');
-	free(tmp);
-	free(line);
-	return (map);
-}
-
-char**	map_construct(int argc, char **argv)
+char	**map_construct(int argc, char **argv)
 {
 	int		fd;
 	char	**map;
@@ -68,6 +23,77 @@ char**	map_construct(int argc, char **argv)
 	if (fd == -1)
 		error("File can't be opened!\n", NULL);
 	map = read_map(fd);
-	// system("leaks so_long");
+	system("leaks so_long");
+	return (map);
+}
+
+int	valid_argv(char *str1, char *str2)
+{
+	int	i;
+
+	i = 0;
+	while (*str1)
+		str1++;
+	while (*str2)
+		str2++;
+	while (i < 4 && *str1 == *str2)
+	{
+		i++;
+		str1--;
+		str2--;
+	}
+	if (i == 4)
+		return (1);
+	return (0);
+}
+
+void	double_new_line(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] == '\n' && line[i + 1] == '\n')
+			error("Validation failed!\n", line);
+		i++;
+	}
+}
+
+char	*check_line(char **new_line, char **line)
+{
+	*new_line = another_strtrim((*line), "\n");
+	if (!(*new_line))
+		line_free((*new_line), (*line));
+	double_new_line((*new_line));
+	return ((*new_line));
+}
+
+char	**read_map(int fd)
+{
+	char	*line;
+	char	*tmp;
+	char	*check;
+	char	*new;
+	char	**map;
+
+	line = NULL;
+	new = NULL;
+	while (1)
+	{
+		tmp = get_next_line(fd);
+		if (!tmp)
+			break ;
+		check = ft_strtrim(tmp, " \n\t\v");
+		if (!check)
+			line_free(tmp, check);
+		line = ft_strjoin(line, check);
+		line_free(tmp, check);
+		if (!line)
+			error("Line couldn't be joined\n", line);
+	}
+	new = check_line(&new, &line);
+	map = split(line, '\n');
+	line_free(new, line);
 	return (map);
 }

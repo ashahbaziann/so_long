@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 19:30:38 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/03/11 15:02:18 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/09 19:56:29 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		new_line(char *str);
 char	*read_file(int fd, char *buffer);
 char	*get_my_line(char *buffer);
 char	*next_line(char *buffer);
-size_t	ft_strlen(const char *s);
+size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 

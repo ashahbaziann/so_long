@@ -6,13 +6,13 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 20:26:18 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/03/11 17:09:40 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/10 15:31:24 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *s)
 {
 	size_t	i;
 

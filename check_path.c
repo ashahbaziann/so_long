@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:09:51 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/08 19:18:56 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:05:21 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	flood_fill(char **copy, t_point current, int width, int height)
 		return ;
 	if (ft_strchr("CP", copy[current.y][current.x]))
 		copy[current.y][current.x] = '0';
+	if (ft_strchr("E", copy[current.y][current.x]))
+		copy[current.y][current.x] = 'K';
 	if (copy[current.y][current.x] != '0')
 		return ;
 	copy[current.y][current.x] = 'F';
@@ -64,7 +66,7 @@ void	check_map(char **copy, t_game *game)
 		j = 0;
 		while (j < game -> width)
 		{
-			if (!ft_strchr("10FE", copy[i][j]))
+			if (!ft_strchr("10FK", copy[i][j]))
 				clean(game, copy, "Wrong path!\n");
 			j++;
 		}
@@ -80,7 +82,4 @@ void	check_all_routes(t_game *game)
 	flood_fill(copy, game -> curr, game -> width, game -> height);
 	check_map(copy, game);
 	map_free(copy);
-	// system("leaks so_long");
 }
-
-

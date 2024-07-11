@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   error_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:29 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/09 13:27:19 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:05:46 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,18 @@ void	map_free(char **map)
 		free(map);
 		map = NULL;
 	}
-	// system("leaks so_long");
 }
 
 void	game_free(t_game *game)
 {
 	map_free(game->map);
 	if (game -> mlx_win)
-	{
 		mlx_destroy_window(game -> mlx, game -> mlx_win);
-		// free(game -> mlx_win);
-	}
 	if (game)
 	{
 		free(game);
 		game = NULL;
 	}
-	// system("leaks so_long");
 }
 
 void	clean(t_game *game, char **copy, char *str)
@@ -70,5 +65,14 @@ void	clean(t_game *game, char **copy, char *str)
 		game_free(game);
 	copy = NULL;
 	game = NULL;
+	system("leaks so_long");
 	error(str, NULL);
+}
+
+void	line_free(char	*line1, char *line2)
+{
+	free (line1);
+	free (line2);
+	line1 = NULL;
+	line2 = NULL;
 }

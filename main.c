@@ -6,13 +6,13 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:09:11 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/09 13:56:19 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:07:54 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char	**map;
 	t_game	*game;
@@ -29,6 +29,6 @@ int main(int argc, char **argv)
 	mlx_hook(game -> mlx_win, 2, 0, handle_movement, game);
 	mlx_hook(game -> mlx_win, 17, 0, handle_close, game);
 	mlx_loop(game -> mlx);
+	system("leaks so_long");
 	return (0);
 }
-

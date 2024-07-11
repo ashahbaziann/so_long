@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:42 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/09 13:25:19 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:02:26 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_strcpy(char *dest, char *src)
 	}
 	return (dest);
 }
+
 int	ft_strchr(char *s, int c)
 {
 	int	i;
@@ -60,4 +61,22 @@ int	width(char **map)
 	while (map[0][i])
 		i++;
 	return (i);
+}
+
+char	*ft_strdup(char *s1)
+{
+	char	*str;
+	int		i;
+
+	i = 0;
+	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
+	if (!str)
+		return (NULL);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
