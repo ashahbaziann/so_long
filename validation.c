@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:51 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 18:53:32 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/12 17:08:30 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ char	**map_construct(int argc, char **argv)
 	int		fd;
 	char	**map;
 
+	map = NULL;
 	if (argc != 2 || !valid_argv(argv[1], ".ber"))
 		error("Wrong arguments!\n", NULL);
 	fd = open("map.ber", O_RDONLY);
@@ -50,19 +51,6 @@ int	valid_argv(char *str1, char *str2)
 	return (0);
 }
 
-void	double_new_line(char *line)
-{
-	int	i;
-
-	i = 0;
-	while (line[i])
-	{
-		if (line[i] == '\n' && line[i + 1] == '\n')
-			error("Validation failed!\n", line);
-		i++;
-	}
-}
-
 char	*check_line(char **new_line, char **line)
 {
 	*new_line = another_strtrim((*line), "\n");
@@ -72,16 +60,14 @@ char	*check_line(char **new_line, char **line)
 	return ((*new_line));
 }
 
-char	**read_map(int fd)
+char	*get_the_line(int fd)
 {
-	char	*line;
 	char	*tmp;
+	char	*line;
 	char	*check;
-	char	*new;
-	char	**map;
 
+	tmp = NULL;
 	line = NULL;
-	new = NULL;
 	while (1)
 	{
 		tmp = get_next_line(fd);
@@ -89,14 +75,41 @@ char	**read_map(int fd)
 			break ;
 		check = ft_strtrim(tmp, " \n\t\v");
 		if (!check)
+		{
 			line_free(tmp, check);
+			error("Validation failed!\n", line);
+		}
 		line = ft_strjoin(line, check);
 		line_free(tmp, check);
 		if (!line)
 			error("Validation failed!\n", line);
 	}
+	line_free(tmp, NULL);
+	return (line);
+}
+
+char	**read_map(int fd)
+{
+	char	*line;
+	char	*new;
+	char	**map;
+
+	line = NULL;
+	new = NULL;
+	map = NULL;
+	line = get_the_line(fd);
+	if (!line || line_is_empty(line))
+		error ("Validation failed!\n", line);
 	new = check_line(&new, &line);
-	map = split(line, '\n');
-	line_free(new, line);
+	if (!new)
+		line_free(line, new);
+	line_free(line, NULL);
+	map = split(new, '\n');
+	if (!map)
+	{
+		line_free(line, new);
+		clean(NULL, map, "Validation failed!\n");
+	}
+	line_free(new, NULL);
 	return (map);
 }

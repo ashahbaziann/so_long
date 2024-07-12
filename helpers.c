@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 17:06:30 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 18:10:56 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/12 17:26:16 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,22 @@ char	*substr_alter(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
+int	is_whitespace(char c)
+{
+	if (c == 32 || (c >= 9 && c <= 13))
+		return (1);
+	return (0);
+}
+
 int	line_is_empty(char *str)
 {
-	if (!str || !*str || *str == '\n'
-		|| *str == ' ' || *str == '\t'
-		|| *str == '\v')
-	{
+	if (!str)
 		return (1);
+	while (*str)
+	{
+		if (!is_whitespace(*str))
+			return (0);
+		str++;
 	}
-	return (0);
+	return (1);
 }

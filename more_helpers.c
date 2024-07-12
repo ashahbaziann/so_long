@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 18:09:56 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 18:52:47 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:36:42 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,19 @@ void	ft_putnbr(int nb)
 	}
 	else
 		ft_putchar(nb);
+}
+
+void	double_new_line(char *line)
+{
+	int	i;
+
+	i = 0;
+	if (!line)
+		return ;
+	while (line[i] && line[i + 1])
+	{
+		if (line[i] == '\n' && line[i + 1] == '\n')
+			error("Validation failed!\n", line);
+		i++;
+	}
 }

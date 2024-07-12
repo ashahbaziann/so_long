@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:42 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 14:02:26 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:39:32 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	height(char **map)
 	int	i;
 
 	i = 0;
+	if (!map || !(*map))
+		return (0);
 	while (map[i])
 		i++;
 	return (i);
@@ -58,6 +60,8 @@ int	width(char **map)
 	int	i;
 
 	i = 0;
+	if (!map || !map[0][i])
+		return (0);
 	while (map[0][i])
 		i++;
 	return (i);

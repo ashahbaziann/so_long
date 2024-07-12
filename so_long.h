@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:12:46 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 18:31:23 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:40:46 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,16 +93,18 @@ int		height(char **map);
 int		valid_argv(char *str1, char *str2);
 char	**read_map(int fd);
 char	**map_construct(int argc, char **argv);
-void	double_new_line(char *line);
 char	*check_line(char **new_line, char **line);
+char	*get_the_line(int fd);
 
 char	*substr_alter(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char *s1, char *set);
 char	*another_strtrim(char *s1, char *set);
 int		line_is_empty(char *str);
+int		is_whitespace(char c);
 
 void	ft_putchar(int x);
 void	ft_putnbr(int nb);
+void	double_new_line(char *line);
 
 size_t	count_words(char const *s, char c);
 char	*word_mall(char const *s, size_t f_occ, size_t l_occ);

@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:12:05 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/10 17:00:18 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/11 20:36:33 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ void	are_horizontal_walls_valid(t_game *game)
 			clean(game, NULL, "Missing walls!\n");
 		j++;
 	}
-	while (game -> map[(game -> height) - 1][j - 1])
+	j = 0;
+	while (game -> map[(game -> height) - 1][j])
 	{
-		if (game -> map[(game -> height) - 1][j - 1] != '1')
+		if (game -> map[(game -> height) - 1][j] != '1')
 			clean(game, NULL, "Missing walls!\n");
-		j--;
+		j++;
 	}
 }
 

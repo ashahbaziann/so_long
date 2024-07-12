@@ -2,7 +2,7 @@ NAME = so_long
 
 RM = rm -f
 
-CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 SRCS =  main.c \
 	map_character.c \
