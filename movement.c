@@ -14,6 +14,7 @@
 
 void	clear_current_position(t_game *game)
 {
+	game -> map[game ->curr.y][game ->curr.x] = '0';
 	put_image(game, game->curr.y, game->curr.x, '0');
 }
 
@@ -39,6 +40,7 @@ void	move_player(t_game *game, int dx, int dy)
 		if (game -> coins <= 0)
 		{
 			game -> steps++;
+			clear_current_position(game);
 			ft_putnbr(game -> steps);
 			write (1, "\n", 1);
 			the_end(game);
