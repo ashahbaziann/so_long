@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:12:05 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 20:36:33 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/16 17:26:22 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,12 @@ void	is_map_rectangular(t_game *game)
 
 	i = 0;
 	j = 0;
+
 	while (i < game -> height)
 	{
 		j = 0;
+		if ((int)ft_strlen(game -> map[i]) != width(game -> map))
+			clean(game, NULL, "Map isn't in the rectangular form!\n");
 		while (j < game -> width)
 		{
 			if (!(game -> map[i][j]))

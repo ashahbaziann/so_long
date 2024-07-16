@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:51 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/12 17:08:30 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:44:38 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**map_construct(int argc, char **argv)
 	map = NULL;
 	if (argc != 2 || !valid_argv(argv[1], ".ber"))
 		error("Wrong arguments!\n", NULL);
-	fd = open("map.ber", O_RDONLY);
+	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		error("File can't be opened!\n", NULL);
 	map = read_map(fd);

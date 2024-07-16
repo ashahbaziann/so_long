@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:12:59 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 18:50:56 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/14 20:12:07 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	clear_current_position(t_game *game)
 {
+	game -> map[game ->curr.y][game ->curr.x] = '0';
 	put_image(game, game->curr.y, game->curr.x, '0');
 }
 
@@ -39,6 +40,7 @@ void	move_player(t_game *game, int dx, int dy)
 		if (game -> coins <= 0)
 		{
 			game -> steps++;
+			clear_current_position(game);
 			ft_putnbr(game -> steps);
 			write (1, "\n", 1);
 			the_end(game);
