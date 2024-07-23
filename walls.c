@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:12:05 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/16 17:26:22 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/19 14:42:27 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	is_map_rectangular(t_game *game)
 
 	i = 0;
 	j = 0;
-
 	while (i < game -> height)
 	{
 		j = 0;

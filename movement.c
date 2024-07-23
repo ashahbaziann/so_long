@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:12:59 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/14 20:12:07 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/19 19:24:55 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,4 @@ int	handle_close(t_game *game)
 	the_end(game);
 	game = NULL;
 	exit(0);
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:10:39 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 18:31:33 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/19 19:26:10 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,10 @@ void	init_game(t_game **game, char **map)
 	(*game)-> wall_loc = &((*game)-> wall);
 	(*game)-> width = width((*game)-> map);
 	(*game)-> height = height((*game)-> map);
+	if ((*game)-> width > 42 || (*game)-> height > 22)
+	{
+		clean((*game), NULL, "Map is too big!\n");
+		exit (1);
+	}
 	init_point(&((*game)-> curr));
 }

@@ -6,7 +6,7 @@
 /*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:09:51 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/11 17:05:21 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:27:59 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	check_map(char **copy, t_game *game)
 		while (j < game -> width)
 		{
 			if (!ft_strchr("10FK", copy[i][j]))
-				clean(game, copy, "Wrong path!\n");
+				clean(game, copy, "Validation failed!\n");
 			j++;
 		}
 		i++;

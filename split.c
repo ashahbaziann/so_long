@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashahbaz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ashahbaz <ashahbaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:11:14 by ashahbaz          #+#    #+#             */
-/*   Updated: 2024/07/05 16:11:21 by ashahbaz         ###   ########.fr       */
+/*   Updated: 2024/07/19 14:41:51 by ashahbaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ char	*word_mall(char const *s, size_t f_occ, size_t l_occ)
 {
 	char	*word;
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
 	word = malloc(sizeof(char) * (l_occ - f_occ + 1));
 	if (!word)
 		return (NULL);
